@@ -16,7 +16,7 @@ def max_pairwise_product_fast(numbers):
     maxIndex2 = -1
 
     for index2 in range(len(numbers)):
-        if maxIndex2 == -1:
+        if maxIndex2 == -1 and maxIndex1 != index2:
             maxIndex2 = index2
             continue
 
@@ -38,18 +38,22 @@ def max_pairwise_product(numbers):
 
 
 if __name__ == '__main__':
-    # input_n = int(input())
-    # input_numbers = [long(x) for x in input().split()]
+    input_n = int(input())
+    input_numbers = [int(x) for x in input().split()]
+    result = max_pairwise_product_fast(input_numbers)
+    print(result)
 
-    while True:
-        n = random.randrange(2, 11)
-        numbers = random.sample(range(2, 11), n)
+    # Stress test
 
-        result = max_pairwise_product(numbers)
-        resultFast = max_pairwise_product_fast(numbers)
+    # while True:
+    #     n = random.randrange(2, 1000)
+    #     numbers = random.sample(range(n), n)
 
-        if(result != resultFast):
-            print("Wrong answer! Basic:{} Fast:{}".format(result, resultFast))
-            break
-        else:
-            print("OK")
+    #     result = max_pairwise_product(numbers)
+    #     resultFast = max_pairwise_product_fast(numbers)
+
+    #     if(result != resultFast):
+    #         print("Wrong answer! Numbers:{} Basic:{} Fast:{}".format(numbers, result, resultFast))
+    #         break
+    #     else:
+    #         print("OK")
